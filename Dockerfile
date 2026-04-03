@@ -9,7 +9,6 @@ RUN npm install -g pnpm
 ENV CI=true
 
 RUN pnpm install
-RUN NODE_OPTIONS="--max-old-space-size=2048" pnpm build
 
 FROM node:20-alpine
 
@@ -23,4 +22,4 @@ ENV NODE_ENV=production
 
 EXPOSE 3000
 
-CMD ["pnpm", "start"]
+CMD ["sh", "-c", "pnpm build && pnpm start"]
