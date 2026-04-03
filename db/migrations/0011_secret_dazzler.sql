@@ -1,0 +1,1 @@
+ALTER TABLE "user" ADD COLUMN IF NOT EXISTS "whatsapp_phone" text;

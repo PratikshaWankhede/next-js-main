@@ -1,0 +1,93 @@
+"use client";
+
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
+import { useDroppable } from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import type { LeadStage } from "../utils/schema";
+import type { LeadWithAssignee } from "./kanban-board";
+import { KanbanCard } from "./kanban-card";
+
+interface KanbanColumnProps {
+  id: LeadStage;
+  title: string;
+  leads: LeadWithAssignee[];
+  currentUserRole: "admin" | "sales" | "follow_up_candidate";
+  currentUserId: string | null;
+  firstResponseSlaMinutes: number;
+}
+
+function canDragLead(
+  lead: LeadWithAssignee,
+  currentUserRole: "admin" | "sales" | "follow_up_candidate",
+  currentUserId: string | null
+): boolean {
+  if (currentUserRole === "admin") return true;
+  if (!currentUserId) return false;
+  return lead.assignedUserId === currentUserId;
+}
+
+export function KanbanColumn({
+  id,
+  title,
+  leads,
+  currentUserRole,
+  currentUserId,
+  firstResponseSlaMinutes,
+}: KanbanColumnProps) {
+  const { setNodeRef, isOver } = useDroppable({
+    id,
+    data: {
+      type: "column",
+      status: id,
+    },
+  });
+
+  return (
+    <div
+      className={cn(
+        "bg-muted/40 flex h-full w-80 shrink-0 flex-col rounded-lg border",
+        isOver && "ring-primary ring-2",
+      )}
+    >
+      <div className="flex items-center justify-between border-b p-3">
+        <div className="flex items-center gap-2">
+          <h3 className="text-sm font-semibold">{title}</h3>
+          <span className="bg-muted text-muted-foreground rounded-full px-2 py-0.5 text-xs font-medium">
+            {leads.length}
+          </span>
+        </div>
+      </div>
+
+      <ScrollArea className="flex-1 px-2 pt-2">
+        <div
+          ref={setNodeRef}
+          className="flex min-h-[200px] flex-col gap-2 pb-2"
+        >
+          <SortableContext
+            items={leads.map((l) => l.id)}
+            strategy={verticalListSortingStrategy}
+          >
+            {leads.map((lead) => (
+              <KanbanCard
+                key={lead.id}
+                lead={lead}
+                assignedUserName={lead.assignedUserName}
+                isDraggable={canDragLead(lead, currentUserRole, currentUserId)}
+                firstResponseSlaMinutes={firstResponseSlaMinutes}
+              />
+            ))}
+          </SortableContext>
+          {leads.length === 0 && (
+            <div className="text-muted-foreground flex h-24 items-center justify-center rounded-lg border-2 border-dashed text-sm">
+              No leads
+            </div>
+          )}
+        </div>
+      </ScrollArea>
+    </div>
+  );
+}

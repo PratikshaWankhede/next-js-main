@@ -1,0 +1,118 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1763656647996,
+      "tag": "0000_sparkling_ken_ellis",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1770016988225,
+      "tag": "0001_youthful_tomorrow_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1770022786364,
+      "tag": "0002_easy_kid_colt",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1770023575752,
+      "tag": "0003_outstanding_vulture",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1770026650546,
+      "tag": "0004_outstanding_squadron_sinister",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1770026688165,
+      "tag": "0005_stormy_firedrake",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1770026809869,
+      "tag": "0006_huge_catseye",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1770027626326,
+      "tag": "0007_large_piledriver",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1770027662608,
+      "tag": "0008_clammy_marvel_apes",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1770032318690,
+      "tag": "0009_absurd_morlocks",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1770032467059,
+      "tag": "0010_overrated_justice",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1770033135928,
+      "tag": "0011_secret_dazzler",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1770040445806,
+      "tag": "0012_nostalgic_sphinx",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1770053234537,
+      "tag": "0013_wide_newton_destine",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1770053300000,
+      "tag": "0014_better_auth_admin_user_session",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1770101508459,
+      "tag": "0015_natural_lake",
+      "breakpoints": true
+    }
+  ]
+}
